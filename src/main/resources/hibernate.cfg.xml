@@ -4,13 +4,21 @@
 
 <hibernate-configuration>
     <session-factory>
-        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="hibernate.connection.username">root</property>
+
+        <!-- Connection settings -->
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost/jvmhubtutorial</property>
+        <property name="hibernate.connection.username">user</property>
         <property name="hibernate.connection.password">password</property>
-        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/hibernateSample</property>
+
+        <!-- SQL dialect -->
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+
+        <!-- Print executed SQL to stdout -->
         <property name="show_sql">true</property>
-        <property name="format_sql">false</property>
+
+        <!-- Drop and re-create all database on startup -->
+        <property name="hibernate.hbm2ddl.auto">create-drop</property>
         <mapping package="com.practises.hibernation.app.entities"/>
     </session-factory>
 </hibernate-configuration>
