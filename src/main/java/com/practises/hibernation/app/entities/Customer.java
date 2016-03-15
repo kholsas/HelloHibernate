@@ -8,7 +8,8 @@ import java.util.Date;
  * Created by Kholofelo Maloma on 2016/03/15.
  */
 
-@Entity(name = "Customers")
+@Entity
+@Table(name = "Customers")
 public class Customer implements Serializable {
 
     @Id
@@ -29,6 +30,9 @@ public class Customer implements Serializable {
         this.firstName = firstName;
         this.lastName = lastName;
         this.dateOfBirth = dateOfBirth;
+    }
+
+    public Customer() {
     }
 
     public int getId() {

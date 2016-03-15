@@ -7,8 +7,8 @@
 
         <!-- Connection settings -->
         <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
-        <property name="hibernate.connection.url">jdbc:postgresql://localhost/jvmhubtutorial</property>
-        <property name="hibernate.connection.username">user</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost/hibernateSample</property>
+        <property name="hibernate.connection.username">developer</property>
         <property name="hibernate.connection.password">password</property>
 
         <!-- SQL dialect -->
@@ -19,6 +19,8 @@
 
         <!-- Drop and re-create all database on startup -->
         <property name="hibernate.hbm2ddl.auto">create-drop</property>
+
+
         <mapping package="com.practises.hibernation.app.entities"/>
     </session-factory>
 </hibernate-configuration>
