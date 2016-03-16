@@ -2,6 +2,8 @@ package com.practises.hibernation.app.service;
 
 import com.practises.hibernation.app.entities.Customer;
 
+import java.util.List;
+
 /**
  * Created by Kholofelo Maloma on 2016/03/15.
  */
@@ -27,4 +29,7 @@ public interface CustomerService {
      */
     Customer getCustomer(long id);
 
+    List<Customer> getAllCustomers();
+
+    Customer getCustomerWithNationalID(String nationalID);
 }

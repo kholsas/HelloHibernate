@@ -20,7 +20,5 @@
         <!-- Drop and re-create all database on startup -->
         <property name="hibernate.hbm2ddl.auto">create-drop</property>
 
-
-        <mapping class="com.practises.hibernation.app.entities.Customer"/>
     </session-factory>
 </hibernate-configuration>

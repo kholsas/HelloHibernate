@@ -16,13 +16,14 @@ public class Customer implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "National_ID", nullable = false)
+    @Column(name = "National_ID", nullable = false, unique = true)
     private String nationalID;
     @Column(name = "First_Name", nullable = false)
     private String firstName;
     @Column(name = "Last_Name", nullable = false)
     private String lastName;
     @Column(name = "Date_Of_Birth", nullable = false)
+    @Temporal(TemporalType.DATE)
     private Date dateOfBirth;
 
     public Customer(String nationalID, String firstName, String lastName, Date dateOfBirth) {
@@ -73,5 +74,16 @@ public class Customer implements Serializable {
 
     public void setDateOfBirth(Date dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
+    }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "id=" + id +
+                ", nationalID='" + nationalID + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", dateOfBirth=" + dateOfBirth +
+                '}';
     }
 }
