@@ -14,7 +14,7 @@ public class CustomerServiceImpl implements CustomerService {
 
         Session session = HibernateUtils.getSessionFactory().openSession();
         session.beginTransaction();
-        session.persist(customer);
+        session.saveOrUpdate(customer);
 
         session.getTransaction().commit();
         session.close();
