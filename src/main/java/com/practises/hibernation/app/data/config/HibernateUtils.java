@@ -4,7 +4,7 @@ package com.practises.hibernation.app.data.config;
  * Created by Kholofelo Maloma on 2016/03/15.
  */
 
-import com.practises.hibernation.app.entities.Customer;
+import com.practises.hibernation.app.hibernate.basic.Customer;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.AnnotationConfiguration;
 
