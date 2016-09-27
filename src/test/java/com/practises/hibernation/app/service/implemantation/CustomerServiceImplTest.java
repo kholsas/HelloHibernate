@@ -3,6 +3,7 @@ package com.practises.hibernation.app.service.implemantation;
 import com.practises.hibernation.app.entities.Customer;
 import com.practises.hibernation.app.service.CustomerService;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.Calendar;
@@ -12,6 +13,7 @@ import static org.junit.Assert.*;
 /**
  * Created by Kholofelo Maloma on 2016/03/16.
  */
+@Ignore
 public class CustomerServiceImplTest {
 
     private CustomerService customerService;
