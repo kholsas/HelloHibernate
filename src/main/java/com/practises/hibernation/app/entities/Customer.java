@@ -1,7 +1,4 @@
-package com.practises.hibernation.app.hibernate.basic;
-
-import com.practises.hibernation.app.data.config.HibernateUtils;
-import org.hibernate.Session;
+package com.practises.hibernation.app.entities;
 
 import javax.persistence.*;
 
@@ -9,7 +6,7 @@ import javax.persistence.*;
  * Created by Kholofelo Maloma on 2016/03/15.
  */
 
-@Entity(name = "CustomersA")
+@Entity(name = "Customers")
 public class Customer {
 
     @Id
