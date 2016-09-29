@@ -3,7 +3,7 @@ package com.practises.hibernation.app.entities;
 import java.util.Date;
 
 /**
- * Created by F4929217 on 9/29/2016.
+ * Created by Kholofelo Maloma on 9/29/2016.
  */
 public class Order {
 

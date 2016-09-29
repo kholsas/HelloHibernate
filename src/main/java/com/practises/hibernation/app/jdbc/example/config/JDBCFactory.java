@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 
 /**
- * Created by F4929217 on 9/29/2016.
+ * Created by Kholofelo on 9/29/2016.
  */
 public class JDBCFactory {
 
