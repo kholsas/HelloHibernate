@@ -1,15 +1,10 @@
 package com.practises.hibernation.app.data.dao;
 
+import com.practises.hibernation.app.entities.Contact;
 import com.practises.hibernation.app.entities.Customer;
-import com.practises.hibernation.app.entities.Order;
 import com.practises.hibernation.app.hibernate.basic.HibernateBusinessDAOImpl;
-import com.practises.hibernation.app.jdbc.JDBCBusinessDAOImpl;
 import org.junit.Before;
 import org.junit.Test;
-
-import java.util.Date;
-
-import static org.junit.Assert.*;
 
 /**
  * Created by F4929217 on 9/30/2016.
@@ -19,7 +14,7 @@ public class BusinessDAOTest {
 
     @Before
     public void setUp() {
-        businessDAO = new JDBCBusinessDAOImpl();
+        businessDAO = new HibernateBusinessDAOImpl();
     }
 
     @Test
@@ -28,6 +23,13 @@ public class BusinessDAOTest {
         customer.setFirstName("Kabelo");
         customer.setLastName("Khoza");
         customer.setNationalID("000000000");
+
+        Contact contact = new Contact();
+        contact.setContactType(Contact.ContactType.EMAIL);
+        contact.setContactDetail("sample@psybergate.co.za");
+        contact.setCustomer(customer);
+        customer.setContact(contact);
+
         businessDAO.saveCustomer(customer);
     }
 

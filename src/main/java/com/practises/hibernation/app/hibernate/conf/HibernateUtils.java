@@ -4,6 +4,7 @@ package com.practises.hibernation.app.hibernate.conf;
  * Created by Kholofelo Maloma on 2016/03/15.
  */
 
+import com.practises.hibernation.app.entities.Contact;
 import com.practises.hibernation.app.entities.Customer;
 import com.practises.hibernation.app.entities.Order;
 import org.hibernate.SessionFactory;
@@ -24,6 +25,7 @@ public class HibernateUtils {
              */
             configuration.addAnnotatedClass(Customer.class);
             configuration.addAnnotatedClass(Order.class);
+            configuration.addAnnotatedClass(Contact.class);
             sessionFactory = configuration.buildSessionFactory();
 
         } catch (Throwable ex) {

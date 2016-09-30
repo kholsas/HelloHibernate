@@ -20,6 +20,10 @@ public class Customer {
     @Column( nullable = false)
     private String lastName;
 
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(referencedColumnName = "id", name = "contact_id")
+    private Contact contact;
+
     public int getId() {
         return id;
     }
@@ -52,5 +56,11 @@ public class Customer {
         this.lastName = lastName;
     }
 
+    public Contact getContact() {
+        return contact;
+    }
 
+    public void setContact(Contact contact) {
+        this.contact = contact;
+    }
 }
