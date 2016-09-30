@@ -20,7 +20,7 @@ public class HibernateBusinessDAOImpl implements BusinessDAO {
         saveEntity(order);
     }
 
-    private <T> void saveEntity(T entity) {
+    public  <T> void saveEntity(T entity) {
 
         Session session = HibernateUtils.getSessionFactory().openSession();
         session.beginTransaction();

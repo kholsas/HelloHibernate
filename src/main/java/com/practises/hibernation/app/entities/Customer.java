@@ -13,11 +13,11 @@ public class Customer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "National_ID", nullable = false, unique = true)
+    @Column( nullable = false, unique = true)
     private String nationalID;
-    @Column(name = "First_Name", nullable = false)
+    @Column(nullable = false)
     private String firstName;
-    @Column(name = "Last_Name", nullable = false)
+    @Column( nullable = false)
     private String lastName;
 
     public int getId() {

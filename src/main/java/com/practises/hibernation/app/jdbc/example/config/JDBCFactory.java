@@ -11,7 +11,7 @@ public class JDBCFactory {
     public static Connection getDatabaseConnection() {
         // create a mysql database connection
         String myDriver = "com.mysql.jdbc.Driver";
-        String myUrl = "jdbc:mysql://localhost:3306/testing";
+        String myUrl = "jdbc:mysql://localhost:3306/testinghibernate";
         Connection conn = null;
         try {
             Class.forName(myDriver);

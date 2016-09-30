@@ -11,4 +11,6 @@ public interface BusinessDAO {
     void saveCustomer(Customer customer);
 
     void saveOrder(Order order);
+
+     <T> void saveEntity(T object);
 }

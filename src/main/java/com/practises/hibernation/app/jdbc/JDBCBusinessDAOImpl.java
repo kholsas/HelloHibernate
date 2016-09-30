@@ -5,9 +5,11 @@ import com.practises.hibernation.app.entities.Customer;
 import com.practises.hibernation.app.entities.Order;
 import com.practises.hibernation.app.jdbc.example.config.JDBCFactory;
 
+import java.lang.reflect.Field;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 /**
  * Created by Kholofelo on 9/29/2016.
@@ -18,8 +20,8 @@ public class JDBCBusinessDAOImpl implements BusinessDAO {
     public void saveCustomer(final Customer customer) {
         Connection conn = JDBCFactory.getDatabaseConnection();
         // the mysql insert statement
-        String query = " insert into Customers (id, firstName, lastName)"
-                + " values (?, ?, ?)";
+        String query = " insert into Customers (id, firstName, lastName, nationalID )"
+                + " values (?, ?, ?, ?)";
 
         try {
             // create the mysql insert preparedstatement
@@ -27,6 +29,7 @@ public class JDBCBusinessDAOImpl implements BusinessDAO {
             preparedStmt.setInt(1, customer.getId());
             preparedStmt.setString(2, customer.getFirstName());
             preparedStmt.setString(3, customer.getLastName());
+            preparedStmt.setString(4, customer.getNationalID());
 
             // execute the preparedstatement
             preparedStmt.execute();
@@ -58,5 +61,37 @@ public class JDBCBusinessDAOImpl implements BusinessDAO {
             System.err.println("Failed to save customer");
             e.printStackTrace();
         }
+    }
+
+    public  <T> void saveEntity(T entity) {
+        StringBuilder sqlBuilder = new StringBuilder("insert into ").append(entity.getClass().getSimpleName()).append("s values(");
+        String tableName = entity.getClass().getName();
+        Field[] allDeclaredFieldsInEntity = entity.getClass().getDeclaredFields();
+
+        for (int i = 0; i < allDeclaredFieldsInEntity.length; i++) {
+            Field field = allDeclaredFieldsInEntity[i];
+            field.setAccessible(true);
+            try {
+                Object fieldValue = field.get(entity);
+                sqlBuilder.append("'").append(fieldValue).append("'");
+                if(i < allDeclaredFieldsInEntity.length -1){
+                    sqlBuilder.append(",");
+                }
+                System.out.println("@@ fieldName = " + field.getName() + ", and fieldValue = " + fieldValue);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        sqlBuilder.append(");");
+
+        Connection conn = JDBCFactory.getDatabaseConnection();
+        try {
+            PreparedStatement preparedStmt = conn.prepareStatement(sqlBuilder.toString());
+            preparedStmt.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("\nsql is: " + sqlBuilder.toString());
     }
 }
