@@ -6,6 +6,7 @@ package com.practises.hibernation.app.hibernate.conf;
 
 import com.practises.hibernation.app.entities.Customer;
 import com.practises.hibernation.app.entities.Order;
+import com.practises.hibernation.app.entities.OrderItem;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.AnnotationConfiguration;
 
@@ -24,6 +25,7 @@ public class HibernateUtils {
              */
             configuration.addAnnotatedClass(Customer.class);
             configuration.addAnnotatedClass(Order.class);
+            configuration.addAnnotatedClass(OrderItem.class);
             sessionFactory = configuration.buildSessionFactory();
 
         } catch (Throwable ex) {

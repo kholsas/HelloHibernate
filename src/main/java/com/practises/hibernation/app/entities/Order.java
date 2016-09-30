@@ -1,19 +1,30 @@
 package com.practises.hibernation.app.entities;
 
+import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by Kholofelo Maloma on 9/29/2016.
  */
+@Entity
+@Table(name = "Orders")
 public class Order {
 
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @Column
     private String orderNumber;
+    @Column
     private Date orderDate;
+    @Column
     private String customerName;
-    //we could add a collection of OrderItems. To make this as simple as possible, we left that out!
 
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "order")
+    private List<OrderItem> orderItems;
 
     public int getId() {
         return id;
@@ -45,5 +56,13 @@ public class Order {
 
     public void setCustomerName(String customerName) {
         this.customerName = customerName;
+    }
+
+    public List<OrderItem> getOrderItems() {
+        return orderItems;
+    }
+
+    public void setOrderItems(List<OrderItem> orderItems) {
+        this.orderItems = orderItems;
     }
 }
