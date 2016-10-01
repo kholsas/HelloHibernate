@@ -23,10 +23,12 @@ public class OrderItem {
     private double price;
     @Column
     private int quantity;
+/*
 
     @ManyToOne(fetch = FetchType.LAZY , cascade = CascadeType.ALL)
     @JoinColumn(name = "order_id", referencedColumnName = "id", nullable = false)
     private Order order;
+*/
 
     public OrderItem(){}
 
@@ -35,7 +37,7 @@ public class OrderItem {
         this.price = price;
         this.quantity = quantity;
         this.orderItemName = orderItemName;
-        this.order = order;
+//        this.order = order;
     }
 
     public int getId() {
@@ -77,12 +79,12 @@ public class OrderItem {
     public void setOrderItemName(String orderItemName) {
         this.orderItemName = orderItemName;
     }
-
+/*
     public Order getOrder() {
         return order;
     }
 
     public void setOrder(Order order) {
         this.order = order;
-    }
+    }*/
 }

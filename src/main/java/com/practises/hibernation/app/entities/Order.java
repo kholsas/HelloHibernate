@@ -23,7 +23,7 @@ public class Order {
     @Column
     private String customerName;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "order")
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY/*, mappedBy = "order"*/)
     private List<OrderItem> orderItems;
 
     public int getId() {
