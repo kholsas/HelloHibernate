@@ -12,7 +12,7 @@ import java.util.Date;
 import static org.junit.Assert.*;
 
 /**
- * Created by F4929217 on 9/30/2016.
+ * Created by Kholofelo Maloma on 19/06/2016.
  */
 public class BusinessDAOTest {
     private BusinessDAO businessDAO;
@@ -25,10 +25,13 @@ public class BusinessDAOTest {
     @Test
     public void saveCustomer() throws Exception {
         Customer customer = new Customer();
-        customer.setFirstName("Kabelo");
-        customer.setLastName("Khoza");
+        customer.setFirstName("No!Shirt");
+        customer.setLastName("Maloma");
         customer.setNationalID("000000000");
+
         businessDAO.saveCustomer(customer);
+
+
     }
 
     @Test
@@ -38,14 +41,15 @@ public class BusinessDAOTest {
 
     @Test
     public void testSaveEntity() {
-   /*     Order order = new Order();
+        Order order = new Order();
         order.setCustomerName("Hello name");
-        order.setOrderDate(new Date());
-        order.setOrderNumber("7474KOL");*/
-        Customer customer = new Customer();
+        order.setOrderDate(new Date().toString());
+        order.setOrderNumber("7474KOL");
+ /*       Customer customer = new Customer();
         customer.setFirstName("Kabelo");
         customer.setLastName("Khoza");
         customer.setNationalID("000000000");
-        businessDAO.saveEntity(customer);
+*/
+        businessDAO.saveEntity(order);
     }
 }

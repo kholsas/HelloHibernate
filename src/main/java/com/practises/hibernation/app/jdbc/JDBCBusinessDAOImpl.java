@@ -33,8 +33,15 @@ public class JDBCBusinessDAOImpl implements BusinessDAO {
 
             // execute the preparedstatement
             preparedStmt.execute();
+            preparedStmt.close();//I didnt know this!
             conn.close();
         } catch (Exception e) {
+            try {
+                conn.close();
+            } catch (SQLException e1) {
+                e1.printStackTrace();
+            }
+
             System.err.println("Failed to save customer");
             e.printStackTrace();
         }
@@ -52,7 +59,7 @@ public class JDBCBusinessDAOImpl implements BusinessDAO {
             preparedStmt.setInt(1, order.getId());
             preparedStmt.setString(2, order.getCustomerName());
             preparedStmt.setString(3, order.getCustomerName());
-            preparedStmt.setDate(4, new Date(order.getOrderDate().getTime()));
+//            preparedStmt.setDate(4, );
 
             // execute the preparedstatement
             preparedStmt.execute();
@@ -64,6 +71,7 @@ public class JDBCBusinessDAOImpl implements BusinessDAO {
     }
 
     public  <T> void saveEntity(T entity) {
+
         StringBuilder sqlBuilder = new StringBuilder("insert into ").append(entity.getClass().getSimpleName()).append("s values(");
         String tableName = entity.getClass().getName();
         Field[] allDeclaredFieldsInEntity = entity.getClass().getDeclaredFields();
@@ -88,6 +96,8 @@ public class JDBCBusinessDAOImpl implements BusinessDAO {
         try {
             PreparedStatement preparedStmt = conn.prepareStatement(sqlBuilder.toString());
             preparedStmt.execute();
+            conn.close();
+
         } catch (SQLException e) {
             e.printStackTrace();
         }

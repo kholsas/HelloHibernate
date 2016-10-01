@@ -10,7 +10,7 @@ public class Order {
     private int id;
 
     private String orderNumber;
-    private Date orderDate;
+    private String orderDate;
     private String customerName;
     //we could add a collection of OrderItems. To make this as simple as possible, we left that out!
 
@@ -31,11 +31,11 @@ public class Order {
         this.orderNumber = orderNumber;
     }
 
-    public Date getOrderDate() {
+    public String getOrderDate() {
         return orderDate;
     }
 
-    public void setOrderDate(Date orderDate) {
+    public void setOrderDate(String orderDate) {
         this.orderDate = orderDate;
     }
 
