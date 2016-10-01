@@ -27,12 +27,17 @@ public class BusinessDAOTest {
         Contact contact = new Contact();
         contact.setContactType(Contact.ContactType.EMAIL);
         contact.setContactDetail("sample@psybergate.co.za");
-        contact.setCustomer(customer);
-        customer.setContact(contact);
+
+
+        customer.setGoodContact(contact);
 
         businessDAO.saveCustomer(customer);
     }
 
+
+    private void getContact(){
+       Contact.ContactType contactType =  Contact.ContactType.valueOf("EMAIL");
+    }
     @Test
     public void saveOrder() throws Exception {
 

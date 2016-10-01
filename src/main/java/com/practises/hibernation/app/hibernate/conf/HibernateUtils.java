@@ -23,7 +23,8 @@ public class HibernateUtils {
              * Configuration uses a resource file, hibernate.cfg.xml
              * NOTE: Full configuration could be done using annotation
              */
-            configuration.addAnnotatedClass(Customer.class);
+//            configuration.addPackage("com.practises.hibernation.app.entities");
+          configuration.addAnnotatedClass(Customer.class);
             configuration.addAnnotatedClass(Order.class);
             configuration.addAnnotatedClass(Contact.class);
             sessionFactory = configuration.buildSessionFactory();

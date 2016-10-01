@@ -21,7 +21,7 @@ public class Contact {
     private String contactDetail;
 
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "customer_id", referencedColumnName = "id")
+//    @JoinColumn(name = "customer_id", referencedColumnName = "id")
     private Customer customer;
 
     public int getId() {
